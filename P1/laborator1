@@ -1,0 +1,107 @@
+create database laborator1;
+use laborator1;
+/*
+create table Jucator
+(IDjucator int primary key identity,
+nume varchar(40),
+pozitieClasament int unique
+);
+
+create table Meci
+(IDmeci int primary key identity,
+IDTurneu int foreign key references Turneu(IDTurneu),
+scor varchar(11)
+
+create table Turneu
+(
+IDTurneu int primary key identity,
+--IDjucator int foreign key references Jucator(IDjucator),
+dataStart date,
+dataStop date,
+nrMeciuri int
+)
+
+create table JucatoriTurneu --relatie m-n
+( IDJ int foreign key references Jucator(IDJucator),
+IDT int foreign key references Turneu(IDTurneu),
+constraint pkJT primary key(IDJ, IDT)
+)
+
+drop table TurneuMeciuri;
+);
+
+create table Antrenor
+(
+IDAntrenor int primary key identity,
+IDJucator int foreign key references Jucator(IDJucator),
+nume varchar(40),
+aniExperienta int,
+fostJucator bit    --1 daca a fost jucator, 0 in caz contrar
+)
+alter table Meci
+add IDJucator1 int foreign key references Jucator(IDJucator);
+
+
+alter table Meci
+add IDJucator2 int foreign key references Jucator(IDJucator)
+
+alter table Turneu
+add premiu money
+
+drop table Antrenor;
+
+create table Antrenor
+(
+IDAntrenor int primary key identity,
+IDJucator int foreign key references Jucator(IDJucator),
+nume varchar(40),
+startExperienta date,
+fostJucator bit    --1 daca a fost jucator, 0 in caz contrar
+)
+
+drop table JucatoriTurneu
+
+create table Teren(
+IDTeren int primary key identity,
+suprafara int,
+acoperit bit	
+)
+
+alter table Meci
+add IDTu int foreign key references Teren(IDTeren)
+
+create table Arbitru
+(IDArbitru int primary key identity,
+nume varchar(26)
+)
+
+create table ArbitriiMeci	--tabel de legatura intre arbitru si meci, unde se stabileste o relatie m-n
+(IDA int foreign key references Arbitru(IDArbitru),
+IDM int foreign key references Meci(IDMeci),
+constraint pk_ArbitriiMeci PRIMARY KEY (IDA, IDM))
+
+alter table Jucator
+add unique(nume)
+
+alter table Meci
+drop column [durata(min)]
+
+alter table Meci
+add d_start datetime
+alter table Meci
+add d_stop datetime*/
+alter table Turneu
+drop column nrMeciuri
+
+
+create table Arbitrii_Meci	
+(IDA int foreign key references Arbitru(IDArbitru),
+IDM int foreign key references Meci(IDMeci),
+constraint pk_ArbitriiMeci PRIMARY KEY (IDA, IDM))
+
+
+
+
+
+
+
